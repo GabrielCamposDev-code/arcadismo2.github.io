@@ -1,1 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio de Arcadismo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        h1 {
+            margin: 20px;
+            font-size: 1.8rem;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px 0;
+            gap: 20px;
+        }
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            width: 100%;
+            max-width: 1200px;
+        }
+        .poem {
+            flex: 1 1 calc(45% - 20px);
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            cursor: pointer;
+            text-align: left;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        .poem:hover {
+            background-color: #f0f0f0;
+            transform: scale(1.02);
+        }
+        .poem p {
+            margin: 0;
+            font-size: 1rem;
+        }
+        .result {
+            margin-top: 10px;
+            font-size: 1.2rem;
+        }
+        @media (max-width: 768px) {
+            .poem {
+                flex: 1 1 calc(90% - 20px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Desafio: Qual é o poema do Arcadismo?</h1>
+
+    <div class="container" id="quiz">
+        <!-- Primeira rodada -->
+        <div class="row">
+            <div id="poem1" class="poem" onclick="checkAnswer(1, 1)">
+                <p>"Que belos dias de verão fulgente,<br>
+                As doces brisas e os campos verdes,<br>
+                A natureza em paz, o céu sorridente,<br>
+                Que vida simples que a alma reveste."</p>
+            </div>
+
+            <div id="poem2" class="poem" onclick="checkAnswer(2, 1)">
+                <p>"Ah, coração que pulsa em dor,<br>
+                Que busca amor em sombras frias,<br>
+                Meu peito arde em pleno ardor,<br>
+                E as noites choram minhas poesias."</p>
+            </div>
+        </div>
+        <div id="result1" class="result"></div>
+
+        <!-- Segunda rodada -->
+        <div class="row">
+            <div id="poem3" class="poem" onclick="checkAnswer(1, 2)">
+                <p>"Colhe a flor que o tempo traz,<br>
+                Canta o rio em seu caminho,<br>
+                A simplicidade é a paz,<br>
+                Que embala o humilde moinho."</p>
+            </div>
+
+            <div id="poem4" class="poem" onclick="checkAnswer(2, 2)">
+                <p>"A cidade ruge, os prédios se erguem,<br>
+                Entre fumaças, o mundo se esconde,<br>
+                As luzes frias nunca sossegam,<br>
+                E a vida grita em tons mais fortes."</p>
+            </div>
+        </div>
+        <div id="result2" class="result"></div>
+
+        <!-- Terceira rodada -->
+        <div class="row">
+            <div id="poem5" class="poem" onclick="checkAnswer(1, 3)">
+                <p>"No campo verde, a paz ressoa,<br>
+                A vida simples, sem tormento,<br>
+                Da natureza a alma ecoa,<br>
+                Com puro amor e bom alento."</p>
+            </div>
+
+            <div id="poem6" class="poem" onclick="checkAnswer(2, 3)">
+                <p>"Um grito aflito corta o vento,<br>
+                Em noites densas de solidão,<br>
+                A alma chora o sofrimento,<br>
+                E busca paz na escuridão."</p>
+            </div>
+        </div>
+        <div id="result3" class="result"></div>
+
+        <!-- Quarta rodada -->
+        <div class="row">
+            <div id="poem7" class="poem" onclick="checkAnswer(1, 4)">
+                <p>"Canta o pastor à sombra da faia,<br>
+                Livre dos males que a vida traz,<br>
+                Vive contente, pois nada atrapalha,<br>
+                A doce calma de sua paz."</p>
+            </div>
+
+            <div id="poem8" class="poem" onclick="checkAnswer(2, 4)">
+                <p>"No brilho falso das cidades,<br>
+                Encontro o eco da solidão,<br>
+                Perdido em sonhos e saudades,<br>
+                Busco sentido na imensidão."</p>
+            </div>
+        </div>
+        <div id="result4" class="result"></div>
+
+        <!-- Quinta rodada -->
+        <div class="row">
+            <div id="poem9" class="poem" onclick="checkAnswer(1, 5)">
+                <p>"Sob o azul do céu tranquilo,<br>
+                Cantam aves, corre o riacho,<br>
+                A vida simples traz aquilo,<br>
+                Que o coração deseja em despacho."</p>
+            </div>
+
+            <div id="poem10" class="poem" onclick="checkAnswer(2, 5)">
+                <p>"No fogo intenso das paixões,<br>
+                Queimam-se os sonhos e a razão,<br>
+                Em versos tristes e emoções,<br>
+                Que ecoam na escuridão."</p>
+            </div>
+        </div>
+        <div id="result5" class="result"></div>
+    </div>
+
+    <script>
+        const correctAnswers = [1, 1, 1, 1, 1]; // Poema correto em cada rodada
+
+        function checkAnswer(choice, round) {
+            const result = document.getElementById(`result${round}`);
+            if (choice === correctAnswers[round - 1]) {
+                result.textContent = `Rodada ${round}: Você acertou!`;
+                result.style.color = 'green';
+            } else {
+                result.textContent = `Rodada ${round}: Você errou!`;
+                result.style.color = 'red';
+            }
+        }
+    </script>
+</body>
+</html>
 
